@@ -19,7 +19,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Generate Dockerfile
-      run: ./generate-Dockerfile.sh
+      run: |
+        chmod +x ./generate-Dockerfile.sh
+        ./generate-Dockerfile.sh
 
     - name: Build Image
       run: docker build -t gpu-jupyter .build/  # will take a while
